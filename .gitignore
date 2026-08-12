@@ -1,0 +1,23 @@
+node_modules/
+.env
+.env.local
+.env.*.local
+
+# build 產物
+dist/
+.next/
+out/
+*.tsbuildinfo
+
+# Prisma 生成的 client（每次 npm install / migrate 都會重新產生）
+packages/db/generated/
+
+# 作業系統
+.DS_Store
+
+# 編輯器
+.vscode/
+.idea/
+
+# Claude Code 的本機設定（權限白名單這類個人偏好，不該進版控）
+.claude/settings.local.json

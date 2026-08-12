@@ -1,0 +1,16 @@
+// Prisma schema —— 資料庫的單一事實來源
+//
+// 現在這裡是空的，這是刻意的。
+// 第六章單元 2 我們會跟 Claude Code 一起設計出第一批 model，
+// 單元 6 加上 Conversation / Message，單元 7 加上帶向量欄位的 Memory。
+//
+// 改完這個檔案之後記得跑：npm run db:migrate
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}

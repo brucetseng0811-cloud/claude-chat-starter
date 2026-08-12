@@ -1,0 +1,52 @@
+@import 'tailwindcss';
+
+/* ---------------------------------------------------------------------------
+   設計 token
+   ---------------------------------------------------------------------------
+   這裡的值必須跟以下兩份完全一致：
+     docs/design/tokens.json          （設計稿的來源）
+     docs/design/mockup/index.html    （Figma 設計稿的來源）
+
+   用 hex 而不是 oklch，是因為 Figma 內部存的是 RGB —— 用 hex 兩邊才對得起來，
+   你也才能直接把 Figma 面板上看到的顏色貼過來比對。
+
+   Tailwind 4 不需要 tailwind.config.js，設計 token 直接寫在 @theme 裡，
+   接著就能用 bg-(--color-surface)、text-(--color-ink) 這種寫法。
+   --------------------------------------------------------------------------- */
+
+@theme {
+  --color-surface: #faf9f7;
+  --color-surface-raised: #ffffff;
+  --color-surface-sunken: #f0eeea;
+  --color-border: #e5e2dc;
+  --color-ink: #2b2926;
+  --color-ink-muted: #73706a;
+  --color-accent: #c96442;
+  --color-accent-soft: #f5ebe6;
+  --color-ok: #3f9142;
+  --color-bad: #c2402f;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+}
+
+@media (prefers-color-scheme: dark) {
+  @theme {
+    --color-surface: #262624;
+    --color-surface-raised: #30302e;
+    --color-surface-sunken: #1f1f1d;
+    --color-border: #3e3e3a;
+    --color-ink: #f2f0eb;
+    --color-ink-muted: #a3a099;
+    --color-accent: #e08768;
+    --color-accent-soft: #3a2e28;
+    --color-ok: #6cc06f;
+    --color-bad: #e0705f;
+  }
+}
+
+body {
+  background: var(--color-surface);
+  color: var(--color-ink);
+}

@@ -1,0 +1,29 @@
+{
+  "name": "claude-chat-starter",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": "^20.19 || ^22.12 || >=24.0"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "db:up": "docker compose up -d",
+    "db:down": "docker compose down",
+    "db:reset": "docker compose down -v && docker compose up -d && sleep 3 && npm run db:migrate",
+    "db:migrate": "npm run -w @chat/db migrate",
+    "db:studio": "npm run -w @chat/db studio",
+    "dev": "concurrently --names api,web --prefix-colors magenta,cyan \"npm:dev:api\" \"npm:dev:web\"",
+    "dev:api": "npm run -w @chat/api dev",
+    "dev:web": "npm run -w @chat/web dev",
+    "build": "npm run build --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.4",
+    "typescript": "^7.0.2"
+  }
+}

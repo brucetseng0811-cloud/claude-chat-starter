@@ -1,0 +1,25 @@
+services:
+  db:
+    # pgvector 官方 image：PostgreSQL 17 + 已編譯好的 vector extension
+    # 第六章單元 7（RAG）會用到向量檢索，所以一開始就用這個 image，
+    # 免得中途還要換資料庫。
+    image: pgvector/pgvector:pg17
+    container_name: claude-chat-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: chat
+      POSTGRES_PASSWORD: chat
+      POSTGRES_DB: chat
+    ports:
+      # 對外開 5433，避開你本機可能已經在跑的 PostgreSQL（預設 5432）
+      - "5433:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U chat -d chat"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  db-data:
