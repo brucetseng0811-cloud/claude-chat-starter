@@ -73,7 +73,9 @@ claude-chat-starter/
 │       │   └── migrations/     第一個 migration 只做一件事：啟用 pgvector
 │       ├── prisma.config.ts    Prisma 7 的 CLI 設定
 │       └── src/index.ts        Prisma Client 單例
-├── docs/design/                Figma 設計稿的離線備份（單元 4 用）
+├── docs/
+│   ├── architecture.md         系統設計文件（單元 1 的產出，已附上；單元 2 會用到）
+│   └── design/                 Figma 設計稿的離線備份（單元 4 用）
 ├── docker-compose.yml          PostgreSQL 17 + pgvector
 ├── CLAUDE.md                   給 Claude Code 看的專案規則
 └── .env.example

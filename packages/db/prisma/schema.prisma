@@ -1,8 +1,8 @@
 // Prisma schema —— 資料庫的單一事實來源
 //
-// 現在這裡是空的，這是刻意的。
-// 第六章單元 2 我們會跟 Claude Code 一起設計出第一批 model，
-// 單元 6 加上 Conversation / Message，單元 7 加上帶向量欄位的 Memory。
+// 現在這裡沒有任何 model，這是刻意的。
+// 第六章單元 2 會跟 Claude Code 一起把 Conversation / Message / Memory
+// 三個 model 一次建出來，之後的單元只使用它們，不會再改動結構。
 //
 // 改完這個檔案之後記得跑：npm run db:migrate
 
